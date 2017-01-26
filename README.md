@@ -24,3 +24,19 @@ function isPrime(number){
   return numArray;
 }
 ```
+
+```
+self.addEventListener('message',function(e){
+  if(e.data.command==='start'){
+    var primes = isPrime(e.data.limit);
+    self.postMessage(primes);
+  }
+},false)
+```
+```
+worker = new Worker('worker.js');
+worker.addEventListener('message',function(e){
+  output.appendChild();
+  loader.
+})
+```
