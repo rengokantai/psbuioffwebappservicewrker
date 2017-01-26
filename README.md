@@ -16,6 +16,11 @@ function isPrime(number){
         divisor=divisor-1;
       }
     }
+    if(not_prime==0){
+      numArray.push(this_number);
+    }
+    this_number = this_number+1;
   }
+  return numArray;
 }
 ```
