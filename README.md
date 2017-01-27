@@ -40,3 +40,21 @@ worker.addEventListener('message',function(e){
   loader.
 })
 ```
+
+
+##7. Common Patterns & Practices
+###2 Caching Patterns
+```
+event.respondWith(
+  fetch(event.request).then(function(fResponse){
+    return caches.open('v1').then(function(cache){
+      if(!fResponse.ok){
+        return cache.match(event.request);
+      }else{
+        cache.put(event.request,fResponse.clone());
+        return fResponse;
+      }
+    })
+  });
+);
+```
